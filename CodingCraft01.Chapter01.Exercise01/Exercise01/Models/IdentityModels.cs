@@ -30,9 +30,9 @@ namespace Exercise01.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<Exercise01.Models.Fornecedor> Fornecedors { get; set; }
+        public System.Data.Entity.DbSet<Exercise01.Models.Fornecedor> Fornecedores { get; set; }
 
-        public System.Data.Entity.DbSet<Exercise01.Models.Produto> Produtoes { get; set; }
+        public System.Data.Entity.DbSet<Exercise01.Models.Produto> Produtos { get; set; }
 
         public System.Data.Entity.DbSet<Exercise01.Models.Categoria> Categorias { get; set; }
     }

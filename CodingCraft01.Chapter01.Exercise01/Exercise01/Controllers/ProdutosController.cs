@@ -18,7 +18,7 @@ namespace Exercise01.Controllers
         // GET: Produtoes
         public async Task<ActionResult> Index()
         {
-            return View(await db.Produtoes.ToListAsync());
+            return View(await db.Produtos.ToListAsync());
         }
 
         // GET: Produtoes/Details/5
@@ -28,7 +28,7 @@ namespace Exercise01.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = await db.Produtoes.FindAsync(id);
+            Produto produto = await db.Produtos.FindAsync(id);
             if (produto == null)
             {
                 return HttpNotFound();
@@ -52,7 +52,7 @@ namespace Exercise01.Controllers
             if (ModelState.IsValid)
             {
                 produto.ProdutoId = Guid.NewGuid();
-                db.Produtoes.Add(produto);
+                db.Produtos.Add(produto);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -67,7 +67,7 @@ namespace Exercise01.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = await db.Produtoes.FindAsync(id);
+            Produto produto = await db.Produtos.FindAsync(id);
             if (produto == null)
             {
                 return HttpNotFound();
@@ -98,7 +98,7 @@ namespace Exercise01.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = await db.Produtoes.FindAsync(id);
+            Produto produto = await db.Produtos.FindAsync(id);
             if (produto == null)
             {
                 return HttpNotFound();
@@ -111,8 +111,8 @@ namespace Exercise01.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(Guid id)
         {
-            Produto produto = await db.Produtoes.FindAsync(id);
-            db.Produtoes.Remove(produto);
+            Produto produto = await db.Produtos.FindAsync(id);
+            db.Produtos.Remove(produto);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
